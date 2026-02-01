@@ -4,21 +4,19 @@ layout: hextra-home
 ---
 
 <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-
-  {{< hextra/hero-badge >}}
-    ✨ 欢迎来到 Emily 的小宇宙
-  {{< /hextra/hero-badge >}}
-
-  {{< hextra/hero-badge >}}
-    🍜 理财、生活、学习，一锅乱炖才香
-  {{< /hextra/hero-badge >}}
-
+{{< badge content="✨ 欢迎来到 Emily 的小宇宙" color="indigo" >}}
+{{< badge content="🍜 理财、生活、学习，一锅乱炖才香" color="green" >}}
 </div>
 
 <div class="hx:mt-6 hx:mb-6">
 {{< hextra/hero-headline >}}
-  <span class="hx:block">Emily 的理财骚操作、</span>
-  <span class="hx:block hx:mt-4">生活碎碎念和学习笔记</span>
+<span class="hx:block hx:text-8xl sm:hx:text-8xl hx:font-bold">
+Emily 的理财骚操作、
+</span>
+<div class="hx:h-6"></div>
+<span class="hx:block hx:mt-4 hx:text-8xl sm:hx:text-5xl">
+生活碎碎念和学习笔记
+</span>
 {{< /hextra/hero-headline >}}
 </div>
 
@@ -26,10 +24,10 @@ layout: hextra-home
 {{< hextra/hero-subtitle >}}
   少点焦虑，多点好笑。攒钱像养猫，学习像追剧，生活像加点糖的气泡水。
 {{< /hextra/hero-subtitle >}}
-</div>
+
 
 <div class="hx:mb-6 hx:mt-8">
-{{< hextra/hero-button text="Get Started" link="docs" >}}
+{{< hextra/hero-button text="开始探索" link="docs" >}}
 </div>
 
 <div class="hx:mt-8"></div>
@@ -41,7 +39,6 @@ layout: hextra-home
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
     image="images/hextra-doc.webp"
     imageClass="hx:top-[40%] hx:left-[24px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="学习不卷也进步"
@@ -49,7 +46,6 @@ layout: hextra-home
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-lg:min-h-[340px]"
     image="images/hextra-markdown.webp"
     imageClass="hx:top-[40%] hx:left-[36px] hx:w-[180%] hx:sm:w-[110%] hx:dark:opacity-80"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(142,53,74,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="生活碎碎念"
@@ -57,7 +53,6 @@ layout: hextra-home
     class="hx:aspect-auto hx:md:aspect-[1.1/1] hx:max-md:min-h-[340px]"
     image="images/hextra-search.webp"
     imageClass="hx:top-[40%] hx:left-[36px] hx:w-[110%] hx:sm:w-[110%] hx:dark:opacity-80"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(221,210,59,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="轻得像气球"
@@ -81,3 +76,38 @@ layout: hextra-home
     subtitle="代码高亮 / 目录 / RSS / LaTeX / Mermaid / 自定义… 统统安排上。"
   >}}
 {{< /hextra/feature-grid >}}
+
+<style>
+  /* 1. 全局背景 */
+  body {
+    /* 渐变 */
+    background: linear-gradient(135deg, #8ec5fc 0%, #29b9b4ff 100%);
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  /* 深色模式背景 */
+  .dark body {
+    background: linear-gradient(135deg, #0f172a 0%, #312e81 100%);
+  }
+  
+  /* 2. 毛玻璃核心代码 */
+  /* 这里使用了 !important 强制覆盖主题默认的白色背景 */
+  .hextra-feature-card {
+    /* 背景色：白色，但是只有 20% 不透明度 (0.2) -> 越小越透 */
+    background-color: rgba(216, 229, 251, 0.2) !important;
+    
+    /* 模糊滤镜：数字越大，背后的东西越模糊 */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* 兼容 Safari */
+    
+    /* 玻璃边缘的高光描边（关键！） */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* 柔和阴影 */
+  }
+
+  /* 深色模式下的玻璃卡片 */
+  .dark .hextra-feature-card {
+    background-color: rgba(0, 0, 0, 0.2) !important; /* 黑色半透明 */
+  }
+</style>
